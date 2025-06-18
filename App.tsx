@@ -5,7 +5,6 @@ import Hello from "./src/Hello"; // Adjust the import path as necessary
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
       <Hello />
       <StatusBar style="auto" />
     </View>

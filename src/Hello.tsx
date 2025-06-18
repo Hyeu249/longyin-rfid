@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, Button, Text, View } from "react-native";
+import { ScrollView, Button, Text, View } from "react-native";
 import C72RfidScanner from "../C72RfidScanner";
 
 export default function App() {
@@ -62,7 +62,15 @@ export default function App() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <View>
-        <Text>{powerState}</Text>
+        <Text>{powerState && "Khởi động thành công!"}</Text>
+        <Text>{isReading && "Máy đang đọc...!"}</Text>
+        <ScrollView style={{ maxHeight: 100 }}>
+          {tags.map((tag, index) => (
+            <Text key={index}>
+              {index + 1}. {tag}
+            </Text>
+          ))}
+        </ScrollView>
       </View>
 
       <View style={{ marginVertical: 20 }}>

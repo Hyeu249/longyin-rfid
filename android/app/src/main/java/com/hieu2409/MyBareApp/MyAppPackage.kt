@@ -1,30 +1,19 @@
 package com.hieu2409.MyBareApp
 
+import android.view.View
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ReactShadowNode
+import com.facebook.react.uimanager.ViewManager
 
-import com.facebook.react.ReactPackage;
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.uimanager.ViewManager;
+class MyAppPackage : ReactPackage {
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+    override fun createViewManagers(
+        reactContext: ReactApplicationContext
+    ): MutableList<ViewManager<View, ReactShadowNode<*>>> = mutableListOf()
 
-public class MyAppPackage implements ReactPackage {
-
-   @Override
-   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-       return Collections.emptyList();
-   }
-
-   @Override
-   public List<NativeModule> createNativeModules(
-           ReactApplicationContext reactContext) {
-       List<NativeModule> modules = new ArrayList<>();
-
-       modules.add(new CalendarModule(reactContext));
-
-       return modules;
-   }
-
+    override fun createNativeModules(
+        reactContext: ReactApplicationContext
+    ): MutableList<NativeModule> = listOf(CalendarModule(reactContext)).toMutableList()
 }

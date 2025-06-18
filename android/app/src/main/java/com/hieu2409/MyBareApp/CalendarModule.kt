@@ -1,27 +1,20 @@
 package com.hieu2409.MyBareApp
 
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.ReactMethod;
-import java.util.Map;
-import java.util.HashMap;
+import android.util.Log
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
 
-import android.util.Log;
+class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
-public class CalendarModule extends ReactContextBaseJavaModule {
-   CalendarModule(ReactApplicationContext context) {
-       super(context);
-   }
-    @NonNull
-    @Override
-    public String getName() {
-        return "CalendarModule";
-    }
+    // Tên của module khi gọi từ JavaScript
+    override fun getName() = "CalendarModule"
 
+    // Hàm native để gọi từ JavaScript
     @ReactMethod
-    public void createCalendarEvent() {
-        Log.d("CalendarModule", "Hello from native module!");
+    fun createCalendarEvent(name: String, location: String) {
+        Log.d("CalendarModule", "Create event called with name: $name and location: $location")
+        // Ở đây bạn có thể thêm logic xử lý thực tế như tạo sự kiện với Calendar API
     }
 }

@@ -150,6 +150,10 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    // Thêm các dependency cần thiết cho thư viện RSCJA Device API
+    implementation(files("libs/xUtils-2.5.5.jar")) // Nếu thư viện này vẫn cần thiết
+    implementation(files("libs/jxl.jar")) // Nếu thư viện này vẫn cần thiết
+    implementation(files("libs/cw-deviceapi20191022.jar")) // Thư viện chính của RSCJA Device API
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";

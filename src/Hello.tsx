@@ -17,17 +17,10 @@ export default function App() {
     setTags((prevTags) => [...prevTags, epc]);
   };
 
-  useEffect(() => {
-    C72RfidScanner.powerListener?.(powerListener);
-    C72RfidScanner.tagListener?.(tagListener);
-
-    return () => {
-      C72RfidScanner.deInitializeReader?.();
-    };
-  }, []);
-
   const startSystem = async () => {
     C72RfidScanner.initializeReader?.();
+    C72RfidScanner.powerListener?.(powerListener);
+    C72RfidScanner.tagListener?.(tagListener);
   };
   const stopSystem = async () => {
     C72RfidScanner.deInitializeReader?.();

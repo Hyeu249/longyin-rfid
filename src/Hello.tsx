@@ -63,6 +63,7 @@ export default function App() {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <View>
         <Text>{powerState && "Khởi động thành công!"}</Text>
+        <Text>{powerState}</Text>
         <Text>{isReading && "Máy đang đọc...!"}</Text>
         <ScrollView style={{ maxHeight: 100 }}>
           {tags.map((tag, index) => (
